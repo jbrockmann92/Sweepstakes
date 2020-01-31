@@ -22,7 +22,9 @@ namespace Lottery
 
         public Sweepstakes GetSweepstakes()
         {
-
+            Sweepstakes queueSweepstakes = new Sweepstakes(UserInterface.GetSweepstakesName());
+            queueSweepstakes.RegisterContestant(UserInterface.GetContestantInfo());
+            return queueSweepstakes;
         }
     }
 }

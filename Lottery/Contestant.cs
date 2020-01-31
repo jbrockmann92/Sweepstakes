@@ -13,12 +13,5 @@ namespace Lottery
         public string lastName;
         public string email;
         public int registrationNumber;
-        //Probably want to randomize a 4-6 digit number
-
-        //Constructor
-
-        //Member Methods (CAN DO)
-
-
     }
 }

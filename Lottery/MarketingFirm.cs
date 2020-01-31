@@ -8,6 +8,7 @@ namespace Lottery
 {
     class MarketingFirm
     {
+        //Highest level class
         ISweepstakesManager manager;
 
         MarketingFirm(ISweepstakesManager manager)
@@ -17,7 +18,8 @@ namespace Lottery
 
         public void CreateSweepstakes()
         {
-
+            Sweepstakes sweepstakes = new Sweepstakes(UserInterface.GetSweepstakesName());
+            sweepstakes.RegisterContestant(UserInterface.GetContestantInfo());
         }
     }
 }

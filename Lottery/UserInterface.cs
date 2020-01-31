@@ -18,13 +18,19 @@ namespace Lottery
             contestant.lastName = Console.ReadLine();
             Console.WriteLine("Please enter the contestant's email address");
             contestant.email = Console.ReadLine();
-            contestant.registrationNumber = random.Next(100000, 1000000);
-            //Creates a 6-digit Registration Number
+            contestant.registrationNumber = random.Next(100, 10000);
+                //Want to add one to it each time. For loop?
 
             return contestant;
 
             //More needed on the interface? Probably. Anytime I want to interact with the user
         }
 
+        public static string GetSweepstakesName()
+        {
+            Console.WriteLine("What would you like the name of this sweepstakes to be?");
+            string sweepstakesName = Console.ReadLine();
+            return sweepstakesName;
+        }
     }
 }

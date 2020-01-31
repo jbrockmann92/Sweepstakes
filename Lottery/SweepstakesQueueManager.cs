@@ -14,6 +14,7 @@ namespace Lottery
         //Constructor
 
         //Member Methods (CAN DO)
+        //Want to ask the client whether they want to complete the most recent sweepstakes first or last??
         public void InsertSweepstakes(Sweepstakes sweepstakes)
         {
 

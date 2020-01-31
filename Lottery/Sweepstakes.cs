@@ -8,36 +8,41 @@ namespace Lottery
 {
     class Sweepstakes
     {
-
-        //Member Variables (HAS A)
         Dictionary<int, Contestant> contestants;
-        string name;
-        string Name;
-        //Public and private? Get; Set
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
 
-        //Constructor
-
-        //Member Methods (CAN DO)
         public Sweepstakes(string name)
         {
-
+            this.Name = name;
         }
 
         public void RegisterContestant(Contestant contestant)
-        {
-
+        { 
+            contestants.Add(contestant.registrationNumber, contestant);
         }
 
         public Contestant PickWinner()
         {
             Contestant contestant;
-
-            return contestant;
+            //Need to go through each of the registrationNumbers and choose one randomly.
+            //Generate, then find the closest Contestant ID to the generated number?
+            //Easy to find the lowest one I guess. Can change later if time
+            int winningContestant = contestants.Keys.Min();
+            if (contestants.TryGetValue(winningContestant, out contestant))
+                return contestant;
+            else
+                return contestant;
+            //I think this should work
         }
 
-        public void PrintcontestantInfo(Contestant contestant)
+        public void PrintcontestantInfo(Contestant contestant) //Enter PickWinner into this? Seems like bad practice. Maybe in the MarketingFirm class?
         {
-
+            Console.WriteLine($"The winner is {contestant.firstName}, {contestant.lastName}!");
         }
     }
 }

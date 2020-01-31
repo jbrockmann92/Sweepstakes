@@ -16,15 +16,12 @@ namespace Lottery
 
         public void InsertSweepstakes(Sweepstakes sweepstakes)
         {
-
+            //Insert into stack here
         }
 
         public Sweepstakes GetSweepstakes()
         {
-            Sweepstakes stackSweepstakes = new Sweepstakes(UserInterface.GetSweepstakesName());
-            stackSweepstakes.RegisterContestant(UserInterface.GetContestantInfo());
-            return stackSweepstakes;
-            //May be in the wrong place
+            //Where I pull the instance off the top
         }
     }
 }

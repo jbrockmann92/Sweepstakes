@@ -19,7 +19,8 @@ namespace Lottery
 
         public void CreateSweepstakes()
         {
-            
+            Sweepstakes sweepstakes = new Sweepstakes(UserInterface.GetSweepstakesName());
+            manager.InsertSweepstakes(sweepstakes);
         }
     }
 }

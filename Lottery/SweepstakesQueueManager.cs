@@ -22,10 +22,7 @@ namespace Lottery
 
         public Sweepstakes GetSweepstakes()
         {
-            Sweepstakes queueSweepstakes = new Sweepstakes(UserInterface.GetSweepstakesName());
-            queueSweepstakes.RegisterContestant(UserInterface.GetContestantInfo());
-            return queueSweepstakes;
-            //Wrong place. Somehow can't be here, because I've decided this stuff already in the Simulation. What's the point of this method
+            //Basically a search method yeah? Where I pull an instance off the bottom
         }
     }
 }

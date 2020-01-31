@@ -8,5 +8,20 @@ namespace Lottery
 {
     class SweepstakesStackManager : ISweepstakesManager
     {
+        //Member Variables (HAS A)
+
+        //Constructor
+
+        //Member Methods (CAN DO)
+
+        public void InsertSweepstakes(Sweepstakes sweepstakes)
+        {
+
+        }
+
+        public Sweepstakes GetSweepstakes()
+        {
+
+        }
     }
 }

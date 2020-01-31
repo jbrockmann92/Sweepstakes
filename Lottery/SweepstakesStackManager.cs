@@ -9,7 +9,7 @@ namespace Lottery
     class SweepstakesStackManager : ISweepstakesManager
     {
         //Member Variables (HAS A)
-
+        Stack<Sweepstakes> sweepstakes = new Stack<Sweepstakes>();
         //Constructor
 
         //Member Methods (CAN DO)

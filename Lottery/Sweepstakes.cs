@@ -10,11 +10,15 @@ namespace Lottery
     {
 
         //Member Variables (HAS A)
+        Dictionary<int, Contestant> contestants;
+        string name;
+        string Name;
+        //Public and private? Get; Set
 
         //Constructor
 
         //Member Methods (CAN DO)
-        public void SweepstakesMethod(string name)
+        public Sweepstakes(string name)
         {
 
         }

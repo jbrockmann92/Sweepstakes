@@ -24,6 +24,7 @@ namespace Lottery
 
         public void RegisterContestant(Contestant contestant)
         { 
+            //Something here or in interface about how many contestants they'd like to add? Not part of User Stories though
             contestants.Add(contestant.registrationNumber, contestant);
         }
 

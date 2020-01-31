@@ -18,6 +18,8 @@ namespace Lottery
         public void InsertSweepstakes(Sweepstakes sweepstakes)
         {
             //Where I want to put the sweepstakes into the queue
+            this.sweepstakes.Enqueue(sweepstakes);
+            //Is that all?
         }
 
         public Sweepstakes GetSweepstakes()

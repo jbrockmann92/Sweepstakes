@@ -8,12 +8,11 @@ namespace Lottery
 {
     public class MarketingFirm
     {
-        //Highest level class
         public ISweepstakesManager manager;
 
         public MarketingFirm(ISweepstakesManager manager)
         {
-            //I have already gotten the choice of stack or queue by this point. 
+            //This is the factory pattern. If I try to make the decision in this class about queue or stack, I would have to write two different methods or something and it could cause all kinds of problems later
             this.manager = manager;
         }
 
@@ -21,6 +20,9 @@ namespace Lottery
         {
             Sweepstakes sweepstakes = new Sweepstakes(UserInterface.GetSweepstakesName());
             manager.InsertSweepstakes(sweepstakes);
+
+            sweepstakes.RegisterContestant(UserInterface.GetContestantInfo());
+            //Probably not the best place for this. Need to be able to register multiple.
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Lottery
         public void InsertSweepstakes(Sweepstakes sweepstakes)
         {
             //Insert into stack here
+            this.sweepstakes.Push(sweepstakes);
         }
 
         public Sweepstakes GetSweepstakes()

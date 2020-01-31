@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lottery
 {
-    class Sweepstakes
+    public class Sweepstakes
     {
         Dictionary<int, Contestant> contestants;
         private string name;
@@ -18,6 +18,7 @@ namespace Lottery
 
         public Sweepstakes(string name)
         {
+            contestants = new Dictionary<int, Contestant>();
             this.Name = name;
         }
 

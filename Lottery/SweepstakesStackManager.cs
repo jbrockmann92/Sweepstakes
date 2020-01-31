@@ -24,6 +24,7 @@ namespace Lottery
             Sweepstakes stackSweepstakes = new Sweepstakes(UserInterface.GetSweepstakesName());
             stackSweepstakes.RegisterContestant(UserInterface.GetContestantInfo());
             return stackSweepstakes;
+            //May be in the wrong place
         }
     }
 }

@@ -6,19 +6,20 @@ using System.Threading.Tasks;
 
 namespace Lottery
 {
-    class MarketingFirm
+    public class MarketingFirm
     {
         //Highest level class
-        ISweepstakesManager manager;
+        public ISweepstakesManager manager;
 
-        MarketingFirm(ISweepstakesManager manager)
+        public MarketingFirm(ISweepstakesManager manager)
         {
-
+            //I have already gotten the choice of stack or queue by this point. 
+            this.manager = manager;
         }
 
         public void CreateSweepstakes()
         {
-            manager.GetSweepstakes();
+            
         }
     }
 }

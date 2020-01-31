@@ -32,5 +32,24 @@ namespace Lottery
             string sweepstakesName = Console.ReadLine();
             return sweepstakesName;
         }
+
+        public static ISweepstakesManager StackOrQueue()
+        {
+            ISweepstakesManager stackOrQueue;
+            string stackOrQueueString;
+            Console.WriteLine("Would you like to organize your Sweepstakes according to a stack or queue?");
+            stackOrQueueString = Console.ReadLine().ToLower();
+
+            if (stackOrQueueString == "stack")
+                stackOrQueue = new SweepstakesStackManager();
+            else if (stackOrQueueString == "queue")
+                stackOrQueue = new SweepstakesQueueManager();
+            else
+                stackOrQueue = null;
+            //Validation here if time
+            //Is this factory?
+
+            return stackOrQueue;
+        }
     }
 }

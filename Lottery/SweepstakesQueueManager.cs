@@ -17,7 +17,7 @@ namespace Lottery
         //Want to ask the client whether they want to complete the most recent sweepstakes first or last??
         public void InsertSweepstakes(Sweepstakes sweepstakes)
         {
-
+            //Where I want to put the sweepstakes into the queue
         }
 
         public Sweepstakes GetSweepstakes()
@@ -25,6 +25,7 @@ namespace Lottery
             Sweepstakes queueSweepstakes = new Sweepstakes(UserInterface.GetSweepstakesName());
             queueSweepstakes.RegisterContestant(UserInterface.GetContestantInfo());
             return queueSweepstakes;
+            //Wrong place. Somehow can't be here, because I've decided this stuff already in the Simulation. What's the point of this method
         }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MailKit;
+using MimeKit;
 
 namespace Lottery
 {
@@ -62,6 +64,31 @@ namespace Lottery
                     //Same thing here. Would probably send email here instead of printing to console
                 }
             }
+        }
+
+        public void SendEmail(Contestant contestant)
+        {
+            var message = new MimeMessage();
+            var bodyBuilder = new BodyBuilder();
+
+            // from
+            message.From.Add(new MailboxAddress("from_name", "from_email@example.com"));
+            // to
+            message.To.Add(new MailboxAddress("to_name", "to_email@example.com"));
+            // reply to
+            message.ReplyTo.Add(new MailboxAddress("reply_name", "reply_email@example.com"));
+
+            message.Subject = "subject";
+            bodyBuilder.HtmlBody = "html body";
+            message.Body = bodyBuilder.ToMessageBody();
+
+            var client = new SmtpClient();
+            //What does this do?
+
+            client.Connect("MAIL_SERVER", 465, SecureSocketOptions.SslOnConnect);
+            client.Authenticate("USERNAME", "PASSWORD");
+            client.Send(message);
+            client.Disconnect(true);
         }
     }
 }

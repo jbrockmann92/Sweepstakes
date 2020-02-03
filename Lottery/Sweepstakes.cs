@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MailKit.Net;
+using MailKit.Net.Smtp;
 using MimeKit;
+using MailKit.Security;
 
 namespace Lottery
 {
@@ -51,7 +52,6 @@ namespace Lottery
                 if (contestant.Value.isWinner == true)
                 {
                     Console.WriteLine("You're the winner! Congratulations!");
-                    //Would be method to send email here I think
                     winnerName = contestant.Value.firstName;
                     SendEmail(contestant);
                     continue;
@@ -63,7 +63,6 @@ namespace Lottery
                 {
                     Console.WriteLine($"You didn't win this time! {winnerName} is the winner. Better luck next time!");
                     SendEmail(contestant);
-                    //Same thing here. Would probably send email here instead of printing to console
                 }
             }
         }
@@ -71,25 +70,25 @@ namespace Lottery
         public void SendEmail(KeyValuePair<int, Contestant> contestant)
         {
             var message = new MimeMessage();
-            var bodyBuilder = new BodyBuilder();
 
-            // from
             message.From.Add(new MailboxAddress("Jacob", "no_reply@bigwinnersweepstakes.com"));
-            // to
             message.To.Add(new MailboxAddress($"{contestant.Value.firstName} {contestant.Value.lastName}", $"{contestant.Value.email}"));
-            // reply to
             //message.ReplyTo.Add(new MailboxAddress("reply_name", "reply_email@example.com"));
             //Don't need a reply email
 
             message.Subject = "subject";
             if (contestant.Value.isWinner == true)
-                bodyBuilder.HtmlBody = $"Congratulations, {contestant.Value.firstName}, you've won!";
+                message.Body = new TextPart("plain")
+                {
+                    Text = $"Congratulations {contestant.Value.firstName}, won the contest."
+                };
             else
-                bodyBuilder.HtmlBody = $"Better luck next time, {contestant.Value.firstName}, won the contest.";
-            message.Body = bodyBuilder.ToMessageBody();
+                message.Body = new TextPart("plain")
+                {
+                    Text = $"Better luck next time, {contestant.Value.firstName}, won the contest."
+                };
 
             var client = new SmtpClient();
-            //What does this do?
 
             client.Connect("smtp.gmail.com", 587);
             client.Authenticate("no_reply@bigwinnersweepstakes.com", "Password");

@@ -12,11 +12,12 @@ namespace Lottery
         {
             ISweepstakesManager sweepstakesManager;
 
-            sweepstakesManager = UserInterface.StackOrQueue(); //Is this right? I want to use Factory
+            sweepstakesManager = UserInterface.StackOrQueue();
             MarketingFirm marketingFirm = new MarketingFirm(sweepstakesManager);
             marketingFirm.CreateSweepstakes();
             Console.ReadLine();
             marketingFirm.manager.GetSweepstakes();
+            Console.ReadLine();
         }
     }
 }

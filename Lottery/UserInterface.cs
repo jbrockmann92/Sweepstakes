@@ -18,11 +18,8 @@ namespace Lottery
             Console.WriteLine("Please enter the contestant's email address");
             contestant.email = Console.ReadLine();
             contestant.registrationNumber = numberOfContestants;
-            //Need to increment, so registration number is one more each time. 
 
             return contestant;
-
-            //More needed on the interface? Probably. Anytime I want to interact with the user
         }
 
         public static string GetSweepstakesName()

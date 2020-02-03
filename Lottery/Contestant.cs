@@ -8,7 +8,6 @@ namespace Lottery
 {
     public class Contestant
     {
-        //Member Variables (HAS A)
         public string firstName;
         public string lastName;
         public string email;

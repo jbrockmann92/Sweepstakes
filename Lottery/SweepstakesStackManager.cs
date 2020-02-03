@@ -8,8 +8,13 @@ namespace Lottery
 {
     class SweepstakesStackManager : ISweepstakesManager
     {
-        Stack<Sweepstakes> sweepstakes = new Stack<Sweepstakes>();
+        Stack<Sweepstakes> sweepstakes;
         public Contestant winner;
+
+        public SweepstakesStackManager()
+        {
+            sweepstakes = new Stack<Sweepstakes>();
+        }
 
         public void InsertSweepstakes(Sweepstakes sweepstakes)
         {
@@ -18,8 +23,7 @@ namespace Lottery
 
         public Sweepstakes GetSweepstakes()
         {
-            Sweepstakes recentSweepstakes;
-            recentSweepstakes = sweepstakes.Pop();
+            Sweepstakes recentSweepstakes = sweepstakes.Pop();
             winner = recentSweepstakes.PickWinner();
             winner.isWinner = true;
             recentSweepstakes.Notify();

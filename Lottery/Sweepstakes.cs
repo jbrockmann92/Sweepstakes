@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MailKit;
+using MailKit.Net;
 using MimeKit;
 
 namespace Lottery
@@ -53,6 +53,7 @@ namespace Lottery
                     Console.WriteLine("You're the winner! Congratulations!");
                     //Would be method to send email here I think
                     winnerName = contestant.Value.firstName;
+                    SendEmail(contestant);
                     continue;
                 }
             }
@@ -61,32 +62,37 @@ namespace Lottery
                 if (contestant.Value.isWinner == false)
                 {
                     Console.WriteLine($"You didn't win this time! {winnerName} is the winner. Better luck next time!");
+                    SendEmail(contestant);
                     //Same thing here. Would probably send email here instead of printing to console
                 }
             }
         }
 
-        public void SendEmail(Contestant contestant)
+        public void SendEmail(KeyValuePair<int, Contestant> contestant)
         {
             var message = new MimeMessage();
             var bodyBuilder = new BodyBuilder();
 
             // from
-            message.From.Add(new MailboxAddress("from_name", "from_email@example.com"));
+            message.From.Add(new MailboxAddress("Jacob", "no_reply@bigwinnersweepstakes.com"));
             // to
-            message.To.Add(new MailboxAddress("to_name", "to_email@example.com"));
+            message.To.Add(new MailboxAddress($"{contestant.Value.firstName} {contestant.Value.lastName}", $"{contestant.Value.email}"));
             // reply to
-            message.ReplyTo.Add(new MailboxAddress("reply_name", "reply_email@example.com"));
+            //message.ReplyTo.Add(new MailboxAddress("reply_name", "reply_email@example.com"));
+            //Don't need a reply email
 
             message.Subject = "subject";
-            bodyBuilder.HtmlBody = "html body";
+            if (contestant.Value.isWinner == true)
+                bodyBuilder.HtmlBody = $"Congratulations, {contestant.Value.firstName}, you've won!";
+            else
+                bodyBuilder.HtmlBody = $"Better luck next time, {contestant.Value.firstName}, won the contest.";
             message.Body = bodyBuilder.ToMessageBody();
 
             var client = new SmtpClient();
             //What does this do?
 
-            client.Connect("MAIL_SERVER", 465, SecureSocketOptions.SslOnConnect);
-            client.Authenticate("USERNAME", "PASSWORD");
+            client.Connect("smtp.gmail.com", 587);
+            client.Authenticate("no_reply@bigwinnersweepstakes.com", "Password");
             client.Send(message);
             client.Disconnect(true);
         }

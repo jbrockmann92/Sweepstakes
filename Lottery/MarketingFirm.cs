@@ -20,10 +20,10 @@ namespace Lottery
         {
             Sweepstakes sweepstakes = new Sweepstakes(UserInterface.GetSweepstakesName());
             manager.InsertSweepstakes(sweepstakes);
-            Console.WriteLine("How many contestants would you like to register?");
-            int numberOfContestants = int.Parse(Console.ReadLine());
+            int numberOfContestants = UserInterface.GetContestantNumber();
             for (int i = 0; i < numberOfContestants; i++)
             {
+                Console.WriteLine($"Enter contestant {i + 1}'s info");
                 sweepstakes.RegisterContestant(UserInterface.GetContestantInfo(i));
             }
         }

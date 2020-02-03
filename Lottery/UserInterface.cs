@@ -45,5 +45,13 @@ namespace Lottery
 
             return stackOrQueue;
         }
+
+        public static int GetContestantNumber()
+        {
+            Console.WriteLine("How many contestants would you like to register?");
+            int numOfContestants = int.Parse(Console.ReadLine());
+            return numOfContestants;
+            //Is this necessary? Seems like it would be quicker and easier to have the writeline and readline in the MarketingFirm class, but maybe isn't best practice
+        }
     }
 }

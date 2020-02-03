@@ -49,6 +49,7 @@ namespace Lottery
                 if (contestant.Value.isWinner == true)
                 {
                     Console.WriteLine("You're the winner! Congratulations!");
+                    //Would be method to send email here I think
                     winnerName = contestant.Value.firstName;
                     continue;
                 }
@@ -58,6 +59,7 @@ namespace Lottery
                 if (contestant.Value.isWinner == false)
                 {
                     Console.WriteLine($"You didn't win this time! {winnerName} is the winner. Better luck next time!");
+                    //Same thing here. Would probably send email here instead of printing to console
                 }
             }
         }

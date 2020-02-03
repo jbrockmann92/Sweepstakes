@@ -31,20 +31,10 @@ namespace Lottery
         public Contestant PickWinner()
         {
             Contestant contestant;
-            //Need to go through each of the registrationNumbers and choose one randomly.
-            //Generate, then find the closest Contestant ID to the generated number?
-            //Easy to find the lowest one I guess. Can change later if time
-            int winningContestant = contestants.Keys.Min();
-            if (contestants.TryGetValue(winningContestant, out contestant))
-                return contestant;
-            else
-                return contestant;
-            //I think this should work
-
-            //This can work if I just assign registration numbers in ascending order
-            //Random rnd = new Random();
-            //contestant = contestants[rnd.Next(1, contestants.Count)];
-            //return contestant;
+            
+            Random rnd = new Random();
+            contestant = contestants[rnd.Next(1, contestants.Count)];
+            return contestant;
         }
 
         public void PrintcontestantInfo(Contestant contestant)

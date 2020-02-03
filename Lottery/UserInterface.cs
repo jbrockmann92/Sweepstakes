@@ -8,18 +8,17 @@ namespace Lottery
 {
     public static class UserInterface
     {
-        public static Contestant GetContestantInfo()
+        public static Contestant GetContestantInfo(int numberOfContestants)
         {
             Contestant contestant = new Contestant();
-            Random random = new Random();
             Console.WriteLine("Please enter the contestant's first name");
             contestant.firstName = Console.ReadLine();
             Console.WriteLine("Please enter the contestant's last name");
             contestant.lastName = Console.ReadLine();
             Console.WriteLine("Please enter the contestant's email address");
             contestant.email = Console.ReadLine();
-            contestant.registrationNumber = random.Next(100, 10000);
-                //Want to add one to it each time. For loop?
+            contestant.registrationNumber = numberOfContestants;
+            //Need to increment, so registration number is one more each time. 
 
             return contestant;
 
@@ -46,8 +45,6 @@ namespace Lottery
                 stackOrQueue = new SweepstakesQueueManager();
             else
                 stackOrQueue = null;
-            //Validation here if time
-            //Is this factory?
 
             return stackOrQueue;
         }

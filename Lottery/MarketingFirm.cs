@@ -21,7 +21,12 @@ namespace Lottery
         {
             Sweepstakes sweepstakes = new Sweepstakes(UserInterface.GetSweepstakesName());
             manager.InsertSweepstakes(sweepstakes);
-            sweepstakes.RegisterContestant(UserInterface.GetContestantInfo());
+            Console.WriteLine("How many contestants would you like to register?");
+            int numberOfContestants = int.Parse(Console.ReadLine());
+            for (int i = 0; i < numberOfContestants; i++)
+            {
+                sweepstakes.RegisterContestant(UserInterface.GetContestantInfo(i));
+            }
             //Probably not the best place for this. Need to be able to register multiple
         }
 

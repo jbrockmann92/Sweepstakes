@@ -26,7 +26,8 @@ namespace Lottery
             Sweepstakes recentSweepstakes;
             recentSweepstakes = sweepstakes.Pop();
             winner = recentSweepstakes.PickWinner();
-            recentSweepstakes.PrintcontestantInfo(winner);
+            winner.isWinner = true;
+            recentSweepstakes.Notify();
             return recentSweepstakes;
         }
     }

@@ -8,6 +8,6 @@ namespace Lottery
 {
     public interface INotifier
     {
-        void Notify(Contestant contestant);
+        void Notify();
     }
 }

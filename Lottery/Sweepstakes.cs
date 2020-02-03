@@ -56,9 +56,9 @@ namespace Lottery
         {
             foreach (KeyValuePair<int, Contestant> contestant in contestants)
             {
-                if ()
+                if (contestant.Value.isWinner == true)
                 {
-
+                    Console.WriteLine("You're the winner! Congratulations!");
                 }
                 else
                 {

@@ -24,7 +24,9 @@ namespace Lottery
 
         public Sweepstakes GetSweepstakes()
         {
-            //Basically a search method yeah? Where I pull an instance off the bottom
+            Sweepstakes recentSweepstakes;
+            recentSweepstakes = sweepstakes.Dequeue();
+            return recentSweepstakes;
         }
     }
 }

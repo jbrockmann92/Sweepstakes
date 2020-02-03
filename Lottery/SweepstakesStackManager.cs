@@ -22,7 +22,9 @@ namespace Lottery
 
         public Sweepstakes GetSweepstakes()
         {
-            //Where I pull the instance off the top
+            Sweepstakes recentSweepstakes;
+            recentSweepstakes = sweepstakes.Pop();
+            return recentSweepstakes;
         }
     }
 }

@@ -10,8 +10,8 @@ namespace Lottery
     {
         static void Main(string[] args)
         {
-            ISweepstakesManager manager = new SweepstakesQueueManager();
-            MarketingFirm mar = new MarketingFirm(manager);
+            Simulation simulation = new Simulation();
+            simulation.CreateMarketingFirmWithManager();
         }
     }
 }

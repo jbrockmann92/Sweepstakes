@@ -12,6 +12,7 @@ namespace Lottery
 
         public MarketingFirm(ISweepstakesManager manager)
         {
+            //Example here of dependency injection? I think so, because the constructor takes in an abstraction, and is not dependent on only one class being passed in???
             //This is the factory pattern. If I try to make the decision in this class about queue or stack, I would have to write two different methods or something and it could cause all kinds of problems later
             this.manager = manager;
         }
@@ -20,7 +21,6 @@ namespace Lottery
         {
             Sweepstakes sweepstakes = new Sweepstakes(UserInterface.GetSweepstakesName());
             manager.InsertSweepstakes(sweepstakes);
-
             sweepstakes.RegisterContestant(UserInterface.GetContestantInfo());
             //Probably not the best place for this. Need to be able to register multiple.
         }

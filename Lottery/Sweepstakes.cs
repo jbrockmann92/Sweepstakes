@@ -44,19 +44,23 @@ namespace Lottery
 
         public void Notify()
         {
+            string winnerName = "";
             foreach (KeyValuePair<int, Contestant> contestant in contestants)
             {
                 if (contestant.Value.isWinner == true)
                 {
                     Console.WriteLine("You're the winner! Congratulations!");
-                }
-                else
-                {
-                    Console.WriteLine($"You didn't win this time! { } is the winner. Better luck next time!");
-//How to print that the one who won is the winner info?
+                    winnerName = contestant.Value.firstName;
+                    continue;
                 }
             }
-            //Logic to notify winner and losers. Bool that determines if they're a winner or not. Have the bool set when the winner is chosen
+            foreach (KeyValuePair<int, Contestant> contestant in contestants)
+            {
+                if (contestant.Value.isWinner == false)
+                {
+                    Console.WriteLine($"You didn't win this time! {winnerName} is the winner. Better luck next time!");
+                }
+            }
         }
     }
 }

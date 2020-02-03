@@ -16,6 +16,7 @@ namespace Lottery
             MarketingFirm marketingFirm = new MarketingFirm(sweepstakesManager);
             marketingFirm.CreateSweepstakes();
             Console.ReadLine();
+            marketingFirm.manager.GetSweepstakes();
         }
     }
 }

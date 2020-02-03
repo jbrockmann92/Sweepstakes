@@ -27,10 +27,6 @@ namespace Lottery
             {
                 sweepstakes.RegisterContestant(UserInterface.GetContestantInfo(i));
             }
-            //Probably not the best place for this. Need to be able to register multiple
         }
-
-        //I want to notify each individual in the Dictionary of contestants who won. Foreach loop I think. Do they need a variable that I change? Bool isNotified or something?
-        //I need an interface that all of the contestants can be notified by. Once the winner is chosen, the interface notifies all of the contestants except the one who won. That's already done
     }
 }

@@ -8,16 +8,11 @@ namespace Lottery
 {
     class SweepstakesStackManager : ISweepstakesManager
     {
-        //Member Variables (HAS A)
         Stack<Sweepstakes> sweepstakes = new Stack<Sweepstakes>();
         public Contestant winner;
-        //Constructor
-
-        //Member Methods (CAN DO)
 
         public void InsertSweepstakes(Sweepstakes sweepstakes)
         {
-            //Insert into stack here
             this.sweepstakes.Push(sweepstakes);
         }
 

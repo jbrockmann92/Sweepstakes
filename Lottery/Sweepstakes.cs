@@ -80,7 +80,7 @@ namespace Lottery
             if (contestant.Value.isWinner == true)
                 message.Body = new TextPart("plain")
                 {
-                    Text = $"Congratulations {contestant.Value.firstName}, won the contest."
+                    Text = $"Congratulations {contestant.Value.firstName}, you won the contest."
                 };
             else
                 message.Body = new TextPart("plain")

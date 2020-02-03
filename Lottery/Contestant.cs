@@ -13,5 +13,6 @@ namespace Lottery
         public string lastName;
         public string email;
         public int registrationNumber;
+        public bool isWinner;
     }
 }

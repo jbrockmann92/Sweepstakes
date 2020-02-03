@@ -10,6 +10,7 @@ namespace Lottery
     {
         //Member Variables (HAS A)
         Stack<Sweepstakes> sweepstakes = new Stack<Sweepstakes>();
+        public Contestant winner;
         //Constructor
 
         //Member Methods (CAN DO)
@@ -24,6 +25,8 @@ namespace Lottery
         {
             Sweepstakes recentSweepstakes;
             recentSweepstakes = sweepstakes.Pop();
+            winner = recentSweepstakes.PickWinner();
+            recentSweepstakes.PrintcontestantInfo(winner);
             return recentSweepstakes;
         }
     }

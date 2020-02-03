@@ -15,6 +15,7 @@ namespace Lottery
             sweepstakesManager = UserInterface.StackOrQueue(); //Is this right? I want to use Factory
             MarketingFirm marketingFirm = new MarketingFirm(sweepstakesManager);
             marketingFirm.CreateSweepstakes();
+            Console.ReadLine();
         }
     }
 }

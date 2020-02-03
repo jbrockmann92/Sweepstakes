@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lottery
 {
-    public class Sweepstakes
+    public class Sweepstakes : INotifier
     {
-        Dictionary<int, Contestant> contestants;
+        public Dictionary<int, Contestant> contestants;
         private string name;
         public string Name
         {
@@ -40,11 +40,33 @@ namespace Lottery
             else
                 return contestant;
             //I think this should work
+
+            //This can work if I just assign registration numbers in ascending order
+            //Random rnd = new Random();
+            //contestant = contestants[rnd.Next(1, contestants.Count)];
+            //return contestant;
         }
 
-        public void PrintcontestantInfo(Contestant contestant) //Enter PickWinner into this? Seems like bad practice. Maybe in the MarketingFirm class?
+        public void PrintcontestantInfo(Contestant contestant)
         {
             Console.WriteLine($"The winner is {contestant.firstName}, {contestant.lastName}!");
+        }
+
+        public void Notify()
+        {
+            foreach (KeyValuePair<int, Contestant> contestant in contestants)
+            {
+                if ()
+                {
+
+                }
+                else
+                {
+                    Console.WriteLine($"You didn't win this time! { } is the winner. Better luck next time!");
+//How to print that the one who won is the winner info?
+                }
+            }
+            //Logic to notify winner and losers. Bool that determines if they're a winner or not. Have the bool set when the winner is chosen
         }
     }
 }
